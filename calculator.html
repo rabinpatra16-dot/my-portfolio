@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      body {
+        background-color: #1a1a2e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .calc {
+        background-color: #16213e;
+        padding: 20px;
+        border-radius: 15px;
+        width: 280px;
+      }
+
+      #display {
+        width: 100%;
+        padding: 15px;
+        font-size: 24px;
+        text-align: right;
+        background-color: #0f3460;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+
+      button {
+        padding: 15px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: #533483;
+        color: white;
+      }
+
+      .btn-operator {
+        background-color: #e94560;
+      }
+
+      .btn-equal {
+        background-color: #2b9348;
+        grid-column: span 2;
+      }
+
+      .btn-clear {
+        background-color: #e36414;
+        grid-column: span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calc">
+      <input id="display" type="text" readonly placeholder="0">
+      <div class="buttons">
+        <button onclick="addNum('7')">7</button>
+        <button onclick="addNum('8')">8</button>
+        <button onclick="addNum('9')">9</button>
+        <button class="btn-operator" onclick="addNum('/')">÷</button>
+
+        <button onclick="addNum('4')">4</button>
+        <button onclick="addNum('5')">5</button>
+        <button onclick="addNum('6')">6</button>
+        <button class="btn-operator" onclick="addNum('*')">×</button>
+
+        <button onclick="addNum('1')">1</button>
+        <button onclick="addNum('2')">2</button>
+        <button onclick="addNum('3')">3</button>
+        <button class="btn-operator" onclick="addNum('-')">−</button>
+
+        <button onclick="addNum('0')">0</button>
+        <button onclick="addNum('.')">.</button>
+        <button class="btn-operator" onclick="addNum('+')">+</button>
+        <button class="btn-operator" onclick="addNum('%')">%</button>
+
+        <button class="btn-clear" onclick="clearDisplay()">Clear</button>
+        <button class="btn-equal" onclick="calculate()">=</button>
+      </div>
+    </div>
+
+    <script>
+      function addNum(val) {
+        document.getElementById("display").value += val;
+      }
+
+      function clearDisplay() {
+        document.getElementById("display").value = "";
+      }
+
+      function calculate() {
+        const display = document.getElementById("display");
+        try {
+          let expression = display.value;
+          let result = expression.replace(/(\d+\.?\d*)\s*([+\-*\/])\s*(\d+\.?\d*)%/g, function(match, a, op, b) {
+            const percent = parseFloat(a) * parseFloat(b) / 100;
+            return parseFloat(a) + op + percent;
+          });
+          display.value = eval(result);
+        } catch {
+          display.value = "Error!";
+        }
+      }
+    </script>
+  </body>
+</html>

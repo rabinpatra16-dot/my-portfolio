@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+</head>
+<body>
+
+  <div id="calculator">
+    
+    <!-- Display — এখানে number দেখাবে -->
+    <input type="text" id="display" value="0" readonly>
+    
+    <!-- Buttons -->
+    <div id="buttons">
+      <button onclick="calcNum('7')">7</button>
+      <button onclick="calcNum('8')">8</button>
+      <button onclick="calcNum('9')">9</button>
+      <button onclick="calcOp('+')">+</button>
+
+      <button onclick="calcNum('4')">4</button>
+      <button onclick="calcNum('5')">5</button>
+      <button onclick="calcNum('6')">6</button>
+      <button onclick="calcOp('-')">-</button>
+
+      <button onclick="calcNum('1')">1</button>
+      <button onclick="calcNum('2')">2</button>
+      <button onclick="calcNum('3')">3</button>
+      <button onclick="calcOp('*')">×</button>
+
+      <button onclick="calcFn('clear')">AC</button>
+      <button onclick="calcNum('0')">0</button>
+      <button onclick="calcEq()">=</button>
+      <button onclick="calcOp('/')">÷</button>
+    </div>
+
+  </div>
+
+  <script src="calc.js"></script>
+</body>
+</html>
