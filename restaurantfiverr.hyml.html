@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Garden Restaurant</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      
+      body { font-family: Arial, sans-serif; background: #1a0a00; color: white; }
+
+      /* NAV */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background: rgba(0,0,0,0.8);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+      }
+      .logo { color: #f0a500; font-size: 24px; }
+      nav ul { list-style: none; display: flex; gap: 30px; }
+      nav ul a { color: white; text-decoration: none; }
+      nav ul a:hover { color: #f0a500; }
+
+      /* HERO */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+          url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200') center/cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .hero h1 { font-size: 60px; color: #f0a500; animation: fadeDown 1s ease; }
+      .hero p { font-size: 22px; margin: 20px 0; color: lightgray; }
+      .hero button {
+        padding: 15px 40px;
+        background: #f0a500;
+        color: black;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .hero button:hover { background: white; }
+
+      /* MENU */
+      .menu {
+        padding: 80px 20px;
+        text-align: center;
+        background: #1a0a00;
+      }
+      .menu h2 { font-size: 40px; color: #f0a500; margin-bottom: 10px; }
+      .menu p { color: lightgray; margin-bottom: 40px; }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .menu-card {
+        background: #2a1a00;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s;
+        border: 1px solid #3a2a00;
+      }
+      .menu-card:hover { transform: translateY(-10px); }
+      .menu-card img { width: 100%; height: 180px; object-fit: cover; }
+      .menu-card-body { padding: 20px; }
+      .menu-card-body h3 { color: #f0a500; margin-bottom: 8px; }
+      .menu-card-body p { color: lightgray; font-size: 14px; }
+      .price { color: #f0a500; font-size: 20px; font-weight: bold; margin-top: 10px; }
+
+      /* ABOUT */
+      .about {
+        padding: 80px 50px;
+        display: flex;
+        gap: 50px;
+        align-items: center;
+        background: #111;
+        flex-wrap: wrap;
+      }
+      .about img {
+        width: 400px;
+        border-radius: 15px;
+        flex-shrink: 0;
+      }
+      .about-text h2 { font-size: 40px; color: #f0a500; margin-bottom: 20px; }
+      .about-text p { color: lightgray; line-height: 1.8; font-size: 16px; }
+
+      /* CONTACT */
+      .contact {
+        padding: 80px 20px;
+        text-align: center;
+        background: #1a0a00;
+      }
+      .contact h2 { font-size: 40px; color: #f0a500; margin-bottom: 10px; }
+      .contact p { color: lightgray; margin-bottom: 30px; }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+      .contact-info div { font-size: 18px; }
+      .contact-info span { color: #f0a500; font-size: 24px; }
+
+      /* FOOTER */
+      footer {
+        background: #000;
+        text-align: center;
+        padding: 20px;
+        color: lightgray;
+      }
+      footer span { color: #f0a500; }
+
+      /* ANIMATION */
+      @keyframes fadeDown {
+        from { opacity: 0; transform: translateY(-50px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 600px) {
+        nav { padding: 15px 20px; }
+        .hero h1 { font-size: 35px; }
+        .menu-grid { grid-template-columns: 1fr; }
+        .about { flex-direction: column; padding: 40px 20px; }
+        .about img { width: 100%; }
+        .contact-info { flex-direction: column; gap: 20px; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav>
+      <h2 class="logo">🍛 Spice Garden</h2>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <h1>Welcome to Spice Garden</h1>
+      <p>Authentic Indian Cuisine Since 1995 🍛</p>
+      <button>View Our Menu</button>
+    </section>
+
+    <section class="menu">
+      <h2>Our Menu</h2>
+      <p>Fresh ingredients, authentic taste</p>
+
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400" alt="Biryani">
+          <div class="menu-card-body">
+            <h3>Chicken Biryani</h3>
+            <p>Aromatic basmati rice with tender chicken</p>
+            <div class="price">₹280</div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=400" alt="Butter Chicken">
+          <div class="menu-card-body">
+            <h3>Butter Chicken</h3>
+            <p>Creamy tomato based chicken curry</p>
+            <div class="price">₹320</div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400" alt="Paneer">
+          <div class="menu-card-body">
+            <h3>Paneer Tikka</h3>
+            <p>Grilled cottage cheese with spices</p>
+            <div class="price">₹240</div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400" alt="Dal">
+          <div class="menu-card-body">
+            <h3>Dal Makhani</h3>
+            <p>Slow cooked black lentils</p>
+            <div class="price">₹180</div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400" alt="Naan">
+          <div class="menu-card-body">
+            <h3>Garlic Naan</h3>
+            <p>Soft bread with garlic butter</p>
+            <div class="price">₹60</div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400" alt="Lassi">
+          <div class="menu-card-body">
+            <h3>Mango Lassi</h3>
+            <p>Fresh mango yogurt drink</p>
+            <div class="price">₹120</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500" alt="Restaurant">
+      <div class="about-text">
+        <h2>Our Story</h2>
+        <p>Welcome to Spice Garden, where every dish tells a story of tradition and passion. Since 1995, we have been serving authentic Indian cuisine made with the finest ingredients and age-old recipes passed down through generations.</p>
+        <br>
+        <p>Our chefs bring decades of experience to create flavors that transport you to the heart of India. Whether you're joining us for a casual meal or a special celebration, we promise an unforgettable dining experience.</p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Find Us</h2>
+      <p>We'd love to see you!</p>
+
+      <div class="contact-info">
+        <div><span>📍</span><br>123 Food Street, Kolkata</div>
+        <div><span>📞</span><br>+91 98765 43210</div>
+        <div><span>🕐</span><br>Mon-Sun: 11AM - 11PM</div>
+        <div><span>📧</span><br>info@spicegarden.com</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 <span>Spice Garden</span> — Made with ❤️ by Rabindranath</p>
+    </footer>
+
+  </body>
+</html>
